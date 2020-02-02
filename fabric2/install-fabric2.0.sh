@@ -11,6 +11,12 @@ if [[ "$EUID" -ne 0 ]]; then
 fi
 
 main(){
+
+	if [[ $1 = "--version" ]]; then
+		show_versions
+		exit 0
+	fi
+
 	apt-get update
 
 	install_docker
@@ -19,11 +25,14 @@ main(){
 	install_node
 	apt-get install python -y
 	install_fabric_samples
-
-	show_versions
-
 	echo "lougout and login"
 }
+
+usage () {
+	echo "$PROGNAME: usage: $PROGNAME [--version]"
+	return
+}
+
 
 
 install_docker(){
