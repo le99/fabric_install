@@ -23,7 +23,7 @@ main(){
 	install_docker_compose
 	install_go
 	install_node
-	apt-get install python -y
+	apt-get install python build-essential -y
 	install_fabric_samples
 	echo "lougout and login"
 }
