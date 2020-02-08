@@ -17,11 +17,11 @@ Vagrant.configure("2") do |config|
   #https://www.virtualbox.org/ticket/10085
   #https://stackoverflow.com/questions/24200333/symbolic-links-and-synced-folders-in-vagrant
   #https://www.vagrantup.com/docs/synced-folders/rsync.html
-  config.vm.synced_folder "./workspace/apps/", "/home/vagrant/workspace/apps", type: "rsync",
-    rsync__args: ["--verbose", "--rsync-path='sudo rsync'", "--archive", "-z", "--delete","--exclude=node_modules"]
+config.vm.synced_folder "./workspace/apps/", "/home/vagrant/workspace/apps", type: "rsync",
+  rsync__args: ["--verbose", "--rsync-path='sudo rsync'", "--archive", "-z","--exclude=node_modules"]
 
-  config.vm.synced_folder "./workspace/smartcontracts/", "/home/vagrant/workspace/smartcontracts", type: "rsync",
-    rsync__args: ["--verbose", "--rsync-path='sudo rsync'", "--archive", "-z", "--delete","--exclude=node_modules"]
+config.vm.synced_folder "./workspace/smartcontracts/", "/home/vagrant/workspace/smartcontracts", type: "rsync",
+  rsync__args: ["--verbose", "--rsync-path='sudo rsync'", "--archive", "-z","--exclude=node_modules"]
 
   config.vm.provider "virtualbox" do |v|
     v.customize ["modifyvm", :id, "--memory", "4096", "--cpus", "2"]
