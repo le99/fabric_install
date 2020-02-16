@@ -7,7 +7,7 @@ Run the script in `fabric1`
 sudo ./install-fabric1.4.sh
 ```
 
-The script will install
+The script will install:
 * Docker
 * Docker Compose 1.25.3
 * Go 1.12.16
@@ -15,6 +15,9 @@ The script will install
 * Python 2
 * Fabric 1.4
 * Fabric Samples in `/usr/local/hyperledger/`
+
+A Vagrant box with fabric installed can be found at:
+https://app.vagrantup.com/le99/boxes/fabric1.4.4
 
 This script was based on:
 * [The Fabric Documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html)
@@ -26,7 +29,7 @@ Run the script in `fabric1`
 sudo ./install-fabric2.0.sh
 ```
 
-The script will install
+The script will install:
 * Docker
 * Docker Compose 1.25.3
 * Go 1.13.7
@@ -34,6 +37,9 @@ The script will install
 * Python 2
 * Fabric 2.0
 * Fabric Samples in `/usr/local/hyperledger/`
+
+A Vagrant box with fabric installed can be found at:
+https://app.vagrantup.com/le99/boxes/fabric2.0.0
 
 This script was based on:
 * [The Fabric Documentation](https://hyperledger-fabric.readthedocs.io/en/latest/prereqs.html)
