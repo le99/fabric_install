@@ -1,0 +1,31 @@
+$script = <<-SCRIPT
+
+#On ssh go to /vagrant
+echo "cd /vagrant" >> /home/vagrant/.profile
+SCRIPT
+
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/focal64"
+
+  config.vm.hostname = "kubeadmin"
+  config.vm.provision "shell", inline: $script
+  config.vm.network "private_network", ip: "192.168.50.12"
+
+  #To solve problem with npm install in shared folder
+  #Use vagrant rsync-auto
+  #https://www.virtualbox.org/ticket/10085
+  #https://stackoverflow.com/questions/24200333/symbolic-links-and-synced-folders-in-vagrant
+  #https://www.vagrantup.com/docs/synced-folders/rsync.html
+
+# config.vm.synced_folder "./workspace/apps/", "/home/vagrant/workspace/apps", type: "rsync",
+#   rsync__args: ["--verbose", "--rsync-path='sudo rsync'", "--archive", "-z","--exclude=node_modules"]
+
+# config.vm.synced_folder "./workspace/smartcontracts/", "/home/vagrant/workspace/smartcontracts", type: "rsync",
+#   rsync__args: ["--verbose", "--rsync-path='sudo rsync'", "--archive", "-z","--exclude=node_modules"]
+
+  config.vm.provider "virtualbox" do |v|
+    v.customize ["modifyvm", :id, "--memory", "4096", "--cpus", "2"]
+    v.gui = false
+  end
+end
