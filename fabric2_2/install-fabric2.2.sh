@@ -66,10 +66,10 @@ install_docker(){
 	docker --version
 	docker compose version
 
-	#https://forums.docker.com/t/command-not-found-when-i-try-to-run-docker-compose/97183/3
-	apt-get install docker-compose
-	#curl -SL https://github.com/docker/compose/releases/download/v2.7.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
-	#chmod +x /usr/local/bin/docker-compose
+	#https://stackoverflow.com/questions/36685980/why-is-docker-installed-but-not-docker-compose
+	sudo curl -L "https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-$(uname -s)-$(uname -m)"  -o /usr/local/bin/docker-compose
+	sudo mv /usr/local/bin/docker-compose /usr/bin/docker-compose
+	sudo chmod +x /usr/bin/docker-compose
 }
 
 install_go(){
